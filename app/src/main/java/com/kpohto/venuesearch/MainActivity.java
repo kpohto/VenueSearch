@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements VenueView {
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("myapp", "onPause");
         presenter.saveModel();
         removeLocationUpdates();
     }
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements VenueView {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("myapp", "onResume");
         presenter.loadModel();
         requestLocationUpdates();
     }
@@ -78,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements VenueView {
     public void updateQueryText(String text) {
         if (text != null) {
             EditText e = (EditText) findViewById(R.id.edit_query);
-            Log.d("myapp", "setText " + text);
 
             // Prevent requests
             disableTextChangedListener();
@@ -137,12 +134,10 @@ public class MainActivity extends AppCompatActivity implements VenueView {
     private void requestLocationUpdates() {
         LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         boolean enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        presenter.setLastKnownLocation(lm.getLastKnownLocation(LocationManager.GPS_PROVIDER));
         presenter.setProviderStatus(enabled);
-        if (enabled) {
-            lm.removeUpdates(presenter);
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, presenter);
-        }
+        presenter.setLastKnownLocation(lm.getLastKnownLocation(LocationManager.GPS_PROVIDER));
+        lm.removeUpdates(presenter);
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, presenter);
     }
 
     /**

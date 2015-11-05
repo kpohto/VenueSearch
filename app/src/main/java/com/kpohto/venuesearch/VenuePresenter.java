@@ -168,7 +168,7 @@ public class VenuePresenter implements LocationListener {
     }
 
     /**
-     * Caled by view to restore the application data (model)
+     * Called by view to restore the application data (model)
      */
     public void loadModel() {
         model.load(context);
@@ -200,6 +200,7 @@ public class VenuePresenter implements LocationListener {
                     location.getTime()
             );
         }
+        view.updateLocationStatus(getLocationString());
     }
 
     /**
