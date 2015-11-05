@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">VenueSearch</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Venue Search</string>
     <string name="action_settings">Settings</string>
+    <string name="no_address_available">No address available</string>
+    <string name="listview_address">Address:</string>
+    <string name="listview_distance">Distance:</string>
+    <string name="status_minutes_ago">minutes ago</string>
+    <string name="status_gps_disabled">GPS is disabled, check your settings.</string>
+    <string name="status_location_unavailable">Current location is not available.</string>
+    <string name="status_no_network">No network, check your settings and try again.</string>
+    <string name="status_waiting_for_location">Waiting for location from GPS.</string>
 </resources>
